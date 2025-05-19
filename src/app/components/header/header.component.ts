@@ -2,7 +2,7 @@ import {Component, HostListener} from '@angular/core';
 import {MatIcon} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {CommonModule} from '@angular/common';
-import {SideMenuComponent} from '../../components/side-menu/side-menu.component';
+import {SideMenuComponent} from '../side-menu/side-menu.component';
 import {MenuService} from '../../services/menu.service';
 
 @Component({
