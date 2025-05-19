@@ -1,0 +1,41 @@
+<header
+  class="header"
+  [class.scrolled]="isScrolled"
+  [class.hovered]="isHovered"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()">
+  <div class="header-left">
+    <button class="menu-btn" (click)="toggleMenu()">
+      <mat-icon>{{ menuOpen ? 'close' : 'menu' }}</mat-icon>
+      <div class="menu-label-wrapper">
+        <span class="menu-label">Menu</span>
+      </div>
+    </button>
+  </div>
+
+  <div class="header-center">
+    <img
+      *ngIf="!isHovered && !isScrolled"
+      src="/assets/img/LOGOS/logo_chic_A.png"
+      alt="Logo Blanco"
+      class="logo"
+    />
+    <img
+      *ngIf="isHovered || isScrolled"
+      src="/assets/img/LOGOS/logo_chic_B.png"
+      alt="Logo Negro"
+      class="logo"
+    />
+  </div>
+
+  <div class="header-right">
+    <button mat-icon-button aria-label="Buscar" class="search-btn">
+      <mat-icon>search</mat-icon>
+    </button>
+
+    <button mat-icon-button aria-label="Carrito">
+      <mat-icon>shopping_bag</mat-icon>
+    </button>
+  </div>
+</header>
+<app-side-menu [isOpen]="menuOpen" [toggleMenu]="toggleMenu.bind(this)"></app-side-menu>

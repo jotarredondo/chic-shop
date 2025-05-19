@@ -1,0 +1,103 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  background: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1100;
+  padding: 2rem;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+:host.open {
+  transform: translateX(0);
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    margin: 1rem 0;
+
+    a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #333;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.close-wrapper {
+  display: flex;
+  align-items: baseline; // clave: alinea texto y símbolo por base
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  vertical-align: baseline;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-btn mat-icon {
+  font-size: 1.5rem;       /* menor que 2rem para igualar altura visual */
+  vertical-align: middle;
+  display: inline-flex;    /* mejor alineación con texto */
+  align-items: center;
+  justify-content: center;
+  height: 1.2rem;          /* fuerza altura similar al texto */
+  width: 1.2rem;
+}
+
+.close-label {
+  font-size: 1.2rem;
+  font-family: inherit;
+  line-height: 1;
+  color: #333;
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+  padding-left: 10px;
+}
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
