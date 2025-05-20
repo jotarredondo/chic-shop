@@ -4,6 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {CommonModule} from '@angular/common';
 import {SideMenuComponent} from '../side-menu/side-menu.component';
 import {MenuService} from '../../services/menu.service';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import {MenuService} from '../../services/menu.service';
     MatIcon,
     MatButtonModule,
     CommonModule,
-    SideMenuComponent
+    SideMenuComponent,
+    RouterLink
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

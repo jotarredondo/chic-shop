@@ -14,18 +14,18 @@
   </div>
 
   <div class="header-center">
+    <a [routerLink]="['/']">
     <img
       *ngIf="!isHovered && !isScrolled"
       src="assets/img/LOGOS/logo_chic_A.png"
       alt="Logo Blanco"
-      class="logo"
-    />
+      class="logo"/>
     <img
       *ngIf="isHovered || isScrolled"
       src="assets/img/LOGOS/logo_chic_B.png"
       alt="Logo Negro"
-      class="logo"
-    />
+      class="logo"/>
+    </a>
   </div>
 
   <div class="header-right">

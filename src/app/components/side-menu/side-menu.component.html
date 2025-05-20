@@ -1,4 +1,4 @@
-<div [class.open]="isOpen" class="side-menu-content">
+<!--<div [class.open]="isOpen" class="side-menu-content">
   <div class="close-wrapper">
     <button class="close-btn" (click)="toggleMenu()">
       <mat-icon class="close-icon">close</mat-icon>
@@ -10,5 +10,40 @@
     <li><a href="#" class="items-side">Bags</a></li>
     <li><a href="#" class="items-side">Sunglasses</a></li>
     <li><a href="#" class="items-side">Shoes</a></li>
+  </ul>
+</div>-->
+<div [class.open]="isOpen" class="side-menu-content">
+  <div class="close-wrapper">
+    <button class="close-btn" (click)="toggleMenu()">
+      <mat-icon class="close-icon">close</mat-icon>
+      <span class="close-label">Close</span>
+    </button>
+  </div>
+
+  <ul class="menu-list">
+    <li class="pb-3">
+      <span class="menu-title">Products</span>
+      <ul class="submenu">
+        <li><a [routerLink]="['/category/bags']" (click)="toggleMenu()">Bags</a></li>
+        <li><a [routerLink]="['/category/sunglasses']" (click)="toggleMenu()">Sunglasses</a></li>
+        <li><a [routerLink]="['/category/shoes']" (click)="toggleMenu()">Shoes</a></li>
+      </ul>
+    </li>
+
+    <li class="pb-3">
+      <span class="menu-title">Chic-Shop's Mission</span>
+      <ul class="submenu">
+        <li><a [routerLink]="['/about-us']" (click)="toggleMenu()">About Us</a></li>
+        <li><a [routerLink]="['/foundation']" (click)="toggleMenu()">Chic-Shop Foundation</a></li>
+      </ul>
+    </li>
+
+    <li class="pb-3">
+      <a [routerLink]="['/find-shop']" class="menu-title" (click)="toggleMenu()">Find a Shop</a>
+    </li>
+
+    <li class="pb-3">
+      <a [routerLink]="['/contact']" class="menu-title" (click)="toggleMenu()">Contact Us</a>
+    </li>
   </ul>
 </div>
