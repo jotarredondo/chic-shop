@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../../services/product.service';
 import {Product} from '../../shared/models/product.model';
 import {ProductCardComponent} from '../../components/product-card/product-card.component';
-import {CurrencyPipe, JsonPipe, NgForOf, NgIf} from '@angular/common';
+import {CurrencyPipe, JsonPipe, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -12,15 +12,21 @@ import {FormsModule} from '@angular/forms';
     ProductCardComponent,
     NgForOf,
     CurrencyPipe,
-    FormsModule
+    FormsModule,
+    NgIf,
+    NgStyle
   ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss'
 })
 export class CategoryComponent {
-  categoryName!: string;
   products: Product[] = [];
   filteredProducts: Product[] = [];
+  categoryName!: 'shoes' | 'bags' | 'sunglasses';
+  backgroundImageUrl = '';
+  subCategoryFilter: string = '';
+  colorFilter: string = '';
+  sizeFilter: string = '';
   maxPrice: number = 300000;
 
   constructor(
@@ -28,33 +34,86 @@ export class CategoryComponent {
     private productService: ProductService
   ) {}
 
+/*  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const name = params.get('name');
+      if (name === 'shoes' || name === 'bags' || name === 'sunglasses') {
+        this.categoryName = name;
+        this.products = this.productService.getProductsByCategory(this.categoryName);
+        this.filterProducts(); // filtrado inicial
+      }
+    });
+  }*/
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.categoryName = params.get('name') || '';
-      this.products = this.productService.getProductsByCategory(this.categoryName);
-      this.filterProducts();
+      const name = params.get('name') as 'shoes' | 'bags' | 'sunglasses';
+      if (name) {
+        this.categoryName = name;
+        this.products = this.productService.getProductsByCategory(this.categoryName);
+        this.setBackgroundImage(name); // ← Aquí
+        this.filterProducts();
+      }
     });
   }
 
-  ngDoCheck(): void {
-    this.filterProducts();
+  setBackgroundImage(category: 'shoes' | 'bags' | 'sunglasses') {
+    switch (category) {
+      case 'shoes':
+        this.backgroundImageUrl = 'assets/img/SLIDE_HOME/2.jpg';
+        break;
+      case 'bags':
+        this.backgroundImageUrl = 'assets/img/SLIDE_HOME/3.jpg';
+        break;
+      case 'sunglasses':
+        this.backgroundImageUrl = 'assets/img/SLIDE_HOME/4.jpg';
+        break;
+    }
   }
 
-  filterProducts() {
-    this.filteredProducts = this.products.filter(p => p.price <= this.maxPrice);
+  filterProducts(): void {
+    this.filteredProducts = this.products.filter(product => {
+      if (product.price > this.maxPrice) return false;
+
+      // Subcategoría según tipo y existencia del campo
+      if (this.subCategoryFilter) {
+        if (
+          (this.categoryName === 'shoes' && product.subcategoryShoes !== this.subCategoryFilter) ||
+          (this.categoryName === 'bags' && product.subcategoryBags !== this.subCategoryFilter) ||
+          (this.categoryName === 'sunglasses' && product.subcategorySunglasses !== this.subCategoryFilter)
+        ) {
+          return false;
+        }
+      }
+
+      // Color
+      if (this.colorFilter && product.color !== this.colorFilter) return false;
+
+      // Size (solo si el producto tiene talla)
+      if (this.sizeFilter) {
+        if (!product.sizes || !product.sizes.includes(this.sizeFilter)) return false;
+      }
+
+      return true;
+    });
   }
-/*  categoryName!: string;
-  products: Product[] = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private productService: ProductService
-  ) {}
+/*  filterProducts() {
+    this.filteredProducts = this.products.filter(product => {
+      if (product.price > this.maxPrice) return false;
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.categoryName = params.get('name') || '';
-      this.products = this.productService.getProductsByCategory(this.categoryName);
+      // Subcategoría dinámica
+      if (this.categoryName === 'shoes' && this.subCategoryFilter && product.subcategoryShoes !== this.subCategoryFilter) return false;
+      if (this.categoryName === 'bags' && this.subCategoryFilter && product.subcategoryBags !== this.subCategoryFilter) return false;
+      if (this.categoryName === 'sunglasses' && this.subCategoryFilter && product.subcategorySunglasses !== this.subCategoryFilter) return false;
+
+      // Color
+      if (this.colorFilter && product.color !== this.colorFilter) return false;
+
+      // Size solo si el producto tiene talla
+      if (this.sizeFilter && product.size !== this.sizeFilter) return false;
+
+      return true;
     });
   }*/
 }

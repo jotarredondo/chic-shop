@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  background-color: #f7f7f7; // fondo gris
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.info-page-wrapper {
+  max-width: 1200px; // ← antes era 1000px
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.info-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .info-logo {
+    height: 60px;
+    margin-bottom: 1rem;
+
+    @media (min-width: 768px) {
+      height: 80px;
+    }
+  }
+
+  .info-subtitle {
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    @media (min-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.info-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #333;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+    padding: 3rem 2.5rem;
+  }
+}

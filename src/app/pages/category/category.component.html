@@ -1,33 +1,100 @@
-<!--<div class="category-container">
-  <h2 class="category-title text-center text-uppercase">{{ categoryName }}</h2>
+<div
+  class="category-background">
+  <div class="background-image-layer" [ngStyle]="{ 'background-image': 'url(' + backgroundImageUrl + ')' }"></div>
+  <div class="category-wrapper">
+  <!-- Encabezado con logo y nombre de categoría -->
 
-  <div class="products-grid">
-    <app-product-card
-      *ngFor="let product of products"
-      [product]="product"
-    ></app-product-card>
-  </div>
-</div>-->
-<div class="category-layout">
-  <!-- Columna de filtros -->
-  <aside class="filter-panel">
-    <h3>Filters</h3>
-    <!-- Aquí irán los filtros que definamos después -->
-    <div class="filter-group">
-      <label>Price Range</label>
-      <input type="range" min="0" max="300000" [(ngModel)]="maxPrice" />
-      <p>Up to: {{ maxPrice | currency:'CLP' }}</p>
+    <div class="category-header mt-5 mx-auto p-2 bg-white rounded-pill text-center custom-oval">
+      <img
+        src="assets/img/LOGOS/logo_chic_B.png"
+        alt="Chic Shop"
+        class="category-logo mb-2"
+      />
+      <h2 class="category-title text-uppercase m-0">{{ categoryName }}</h2>
     </div>
-  </aside>
 
-  <!-- Grilla de productos -->
-  <section class="products-grid">
-    <app-product-card
-      *ngFor="let product of filteredProducts"
-      [product]="product"
-    ></app-product-card>
-  </section>
+  <!-- Layout de filtros + productos -->
+  <div class="category-layout">
+    <aside class="filter-panel">
+      <h3>Filters</h3>
 
-<!--  <p *ngIf="products.length === 0">No products found for this category.</p>
-  <pre>{{ products | json }}</pre>-->
+      <!-- Price Filter -->
+      <div class="filter-group">
+        <label>Price Range</label>
+        <input
+          type="range"
+          min="0"
+          max="300000"
+          step="100"
+          [(ngModel)]="maxPrice"
+          (change)="filterProducts()"
+        />
+        <p>Up to: {{ maxPrice | currency:'CAD':'symbol' }}</p>
+      </div>
+
+      <!-- Subcategory Filter -->
+      <div class="filter-group" *ngIf="categoryName === 'shoes'">
+        <label>Shoe Type</label>
+        <select [(ngModel)]="subCategoryFilter" (change)="filterProducts()">
+          <option value="">All</option>
+          <option value="sneakers">Sneakers</option>
+          <option value="shoes">Shoes</option>
+          <option value="boots">Boots</option>
+        </select>
+      </div>
+
+      <div class="filter-group" *ngIf="categoryName === 'bags'">
+        <label>Bag Type</label>
+        <select [(ngModel)]="subCategoryFilter" (change)="filterProducts()">
+          <option value="">All</option>
+          <option value="handbag">Handbag</option>
+          <option value="backpack">Backpack</option>
+          <option value="fanny pack">Fanny Pack</option>
+        </select>
+      </div>
+
+      <div class="filter-group" *ngIf="categoryName === 'sunglasses'">
+        <label>Style</label>
+        <select [(ngModel)]="subCategoryFilter" (change)="filterProducts()">
+          <option value="">All</option>
+          <option value="sport">Sport</option>
+          <option value="classy">Classy</option>
+          <option value="animal print">Animal Print</option>
+        </select>
+      </div>
+
+      <!-- Color Filter -->
+      <div class="filter-group">
+        <label>Color</label>
+        <select [(ngModel)]="colorFilter" (change)="filterProducts()">
+          <option value="">All</option>
+          <option *ngFor="let color of ['black','white','blue','green','red','pink','purple','orange','multicolor']" [value]="color">
+            {{ color }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Size Filter (only for shoes) -->
+      <div class="filter-group" *ngIf="categoryName === 'shoes'">
+        <label>Size</label>
+        <select [(ngModel)]="sizeFilter" (change)="filterProducts()">
+          <option value="">All</option>
+          <option *ngFor="let size of ['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5']" [value]="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- Grid de productos -->
+    <section class="products-grid">
+      <app-product-card
+        *ngFor="let product of filteredProducts"
+        [product]="product"
+      ></app-product-card>
+    </section>
+  </div>
 </div>
+</div>
+
+

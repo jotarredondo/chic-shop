@@ -39,3 +39,4 @@
   </div>
 </header>
 <app-side-menu [isOpen]="menuOpen" [toggleMenu]="toggleMenu.bind(this)"></app-side-menu>
+<div class="overlay" *ngIf="menuOpen" (click)="toggleMenu()"></div>
