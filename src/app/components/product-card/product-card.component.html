@@ -1,8 +1,24 @@
-<!--<p>product-card works!</p>-->
-<div class="product-card">
-  <img [src]="product.images[0]" alt="{{ product.name }}" class="product-image" />
-  <div class="product-info">
-    <h3 class="product-name">{{ product.name }}</h3>
-    <p class="product-price">{{ product.price | currency:'CLP':'symbol' }}</p>
+<div class="product-card p-3">
+
+  <!-- ▸ MINI-SLIDER ◂ -->
+  <div class="slider">
+    <img
+      [src]="product.images[current]"
+      [alt]="product.name"
+      class="product-image rounded-2"/>
+
+    <!-- nav arrows -->
+    <button class="nav prev" (click)="prev()"><mat-icon fontIcon="chevron_left"></mat-icon></button>
+    <button class="nav next" (click)="next()"><mat-icon fontIcon="chevron_right"></mat-icon></button>
+  </div>
+
+  <!-- ▸ INFO ◂ -->
+  <div class="product-info text-center mt-3">
+    <h3 class="product-name">{{ product.name | titlecase }}</h3>
+    <p class="product-price mb-3">
+      {{ product.price | currency:'CAD':'symbol' }}
+    </p>
+
+    <button class="add-btn">Add to Cart</button>
   </div>
 </div>
