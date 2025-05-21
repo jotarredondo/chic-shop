@@ -64,7 +64,7 @@
         <select [(ngModel)]="colorFilter" (change)="filterProducts()">
           <option value="">All</option>
           <option *ngFor="let color of ['black','white','blue','green','red','pink','purple','orange','multicolor']" [value]="color">
-            {{ color }}
+            {{ color | titlecase }}
           </option>
         </select>
       </div>

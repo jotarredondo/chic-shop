@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../../services/product.service';
 import {Product} from '../../shared/models/product.model';
 import {ProductCardComponent} from '../../components/product-card/product-card.component';
-import {CurrencyPipe, JsonPipe, NgForOf, NgIf, NgStyle} from '@angular/common';
+import {CurrencyPipe, JsonPipe, NgForOf, NgIf, NgStyle, TitleCasePipe} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -14,7 +14,8 @@ import {FormsModule} from '@angular/forms';
     CurrencyPipe,
     FormsModule,
     NgIf,
-    NgStyle
+    NgStyle,
+    TitleCasePipe
   ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss'
@@ -85,10 +86,10 @@ export class CategoryComponent {
           return false;
         }
       }
-
       // Color
-      if (this.colorFilter && product.color !== this.colorFilter) return false;
-
+      if (this.colorFilter && (!product.colors || !product.colors.includes(this.colorFilter))) {
+        return false;
+      }
       // Size (solo si el producto tiene talla)
       if (this.sizeFilter) {
         if (!product.sizes || !product.sizes.includes(this.sizeFilter)) return false;

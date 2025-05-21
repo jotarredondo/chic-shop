@@ -1,1 +1,85 @@
-<p>product-detail works!</p>
+<div class="detail-background-wrapper">
+  <div
+    class="detail-background-image"
+    [ngStyle]="{'background-image': 'url(' + backgroundImageUrl + ')'}">
+  </div>
+
+  <div class="info-page-wrapper">
+    <!-- Cabecera ovalada con logo -->
+    <div class="category-header mt-5 mx-auto bg-white rounded-pill text-center custom-oval">
+      <img src="assets/img/LOGOS/logo_chic_B.png" alt="Logo" class="category-logo mb-2" />
+    </div>
+
+    <div class="info-content d-flex flex-column flex-md-row gap-4 align-items-start">
+      <!-- IMAGEN -->
+      <div class="detail-image w-100 w-md-50">
+        <div class="slider position-relative">
+          <img [src]="product.images[current]" [alt]="product.name" class="rounded-2 w-100" />
+          <button class="nav prev" (click)="prev()"><mat-icon>chevron_left</mat-icon></button>
+          <button class="nav next" (click)="next()"><mat-icon>chevron_right</mat-icon></button>
+        </div>
+      </div>
+
+      <div class="detail-info row gx-4">
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="col-12 col-md-6">
+          <!-- TÍTULO -->
+          <h2 class="info-subtitle">{{ product.name | titlecase }}</h2>
+
+          <!-- DESCRIPCIÓN -->
+          <p class="product-desc">{{ product.description }}</p>
+
+          <!-- COLORS -->
+          <div *ngIf="product.colors?.length" class="product-colors mb-3">
+            <label class="form-label">Colors:</label>
+            <div class="d-flex gap-2 flex-wrap">
+              <div class="color-circle"
+                   *ngFor="let color of product.colors"
+                   [ngStyle]="{ 'background-color': color }"
+                   [class.selected]="color === selectedColor"
+                   (click)="selectedColor = color"></div>
+            </div>
+          </div>
+
+          <!-- SIZES -->
+          <div *ngIf="availableSizes?.length" class="product-sizes mb-3">
+            <label class="form-label d-block">Sizes:</label>
+            <div class="d-flex gap-2 flex-wrap pt-2">
+              <div class="size-box"
+                   *ngFor="let size of availableSizes"
+                   [class.selected]="size === selectedSize"
+                   (click)="selectedSize = size">
+                {{ size }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="col-12 col-md-6 d-flex flex-column align-items-center text-center">
+          <div class="my-4"></div>
+          <!-- PRICE + QUANTITY -->
+          <div class="mb-4">
+            <h3 class="product-price fw-bold">{{ product.price | currency:'CAD':'symbol' }}</h3>
+          </div>
+
+          <div class="mb-2">
+            <div class="product-quantity mb-3">
+              <label class="form-label">Quantity:</label>
+              <select class="form-select w-auto" [(ngModel)]="selectedQuantity">
+                <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- BOTÓN ADD TO CART -->
+          <div>
+            <button class="add-btn w-100 w-md-auto px-5 py-2 mt-2" [disabled]="!isReadyToAdd">Add to Cart</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

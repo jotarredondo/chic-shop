@@ -113,24 +113,7 @@ input[type="range"] {
 }
 
 .custom-oval {
-  max-width: 320px; // controla qué tan "angosto" se ve
+  max-width: 320px;
   border-radius: 50px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
-
-/*input[type="range"] {
-  accent-color: black; // Soporte moderno para cambiar el color principal
-
-  // Para mayor compatibilidad con navegadores antiguos:
-  &::-webkit-slider-thumb {
-    background-color: black;
-  }
-
-  &::-moz-range-thumb {
-    background-color: black;
-  }
-
-  &::-ms-thumb {
-    background-color: black;
-  }
-}*/

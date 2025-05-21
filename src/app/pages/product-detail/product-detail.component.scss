@@ -1,0 +1,232 @@
+:host {
+  display: block;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+// Contenedor principal con fondo blur
+.detail-background-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  .detail-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    transform: scale(1.05);
+    z-index: 0;
+  }
+
+  .info-page-wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+// Cuadro blanco con el contenido del producto
+.info-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+// Slider de imágenes
+.detail-image {
+  flex: 1;
+
+  .slider {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
+
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &.prev {
+        left: 8px;
+      }
+
+      &.next {
+        right: 8px;
+      }
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}
+
+// Información del producto
+.detail-info {
+  flex: 1;
+  padding-left: 1rem;
+
+  .product-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-desc {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+
+  .product-colors {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .color-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      cursor: pointer;
+
+      &.selected {
+        border: 2px solid #111;
+      }
+    }
+  }
+
+  .product-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .size-box {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      min-width: 40px;
+      text-align: center;
+
+      &.selected {
+        background-color: #111;
+        color: white;
+        border-color: #111;
+      }
+    }
+  }
+
+  .product-quantity {
+    margin-bottom: 1rem;
+
+    select {
+      font-size: 0.9rem;
+    }
+  }
+
+  .product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .add-btn {
+    margin-top: 1rem;
+    background-color: #111;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #444;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.custom-oval {
+  max-width: 320px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin: 0 auto 2rem auto;
+
+  .category-logo {
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+
+    @media (min-width: 768px) {
+      height: 80px;
+    }
+  }
+
+  .info-subtitle {
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    @media (min-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+/*.detail-content {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: stretch; // importante: para que ambas columnas tengan misma altura
+  }
+}
+
+.detail-image {
+  flex: 1;
+}
+
+.detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // centra el contenido verticalmente
+}*/

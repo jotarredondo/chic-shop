@@ -1,21 +1,24 @@
 <div class="product-card p-3">
-
-  <!-- ▸ MINI-SLIDER ◂ -->
-  <div class="slider">
+  <div class="slider" (click)="goToDetail()" style="cursor: pointer;">
     <img
       [src]="product.images[current]"
       [alt]="product.name"
-      class="product-image rounded-2"/>
+      class="product-image rounded-2"
+    />
 
-    <!-- nav arrows -->
-    <button class="nav prev" (click)="prev()"><mat-icon fontIcon="chevron_left"></mat-icon></button>
-    <button class="nav next" (click)="next()"><mat-icon fontIcon="chevron_right"></mat-icon></button>
+    <button mat-icon-button class="nav prev" (click)="prev(); $event.stopPropagation()">
+      <mat-icon fontIcon="chevron_left"></mat-icon>
+    </button>
+    <button mat-icon-button class="nav next" (click)="next(); $event.stopPropagation()">
+      <mat-icon fontIcon="chevron_right"></mat-icon>
+    </button>
   </div>
 
   <!-- ▸ INFO ◂ -->
   <div class="product-info text-center mt-3">
-    <h3 class="product-name">{{ product.name | titlecase }}</h3>
-    <p class="product-price mb-3">
+    <h5 class="product-name">{{ product.name | titlecase }}</h5>
+    <p class="product-description">{{product.description}}</p>
+    <p class="mb-3">
       {{ product.price | currency:'CAD':'symbol' }}
     </p>
 

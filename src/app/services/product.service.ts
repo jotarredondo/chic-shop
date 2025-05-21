@@ -32,7 +32,8 @@ export class ProductService {
         'assets/img/ZAPATOS/2/2-2.jpg',
         'assets/img/ZAPATOS/2/2-3.jpg'
       ],
-      sizes: ['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10']
+      sizes: ['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10'],
+      colors: ['black', 'multicolor']
     },
     {
       id: 3,
@@ -105,6 +106,7 @@ export class ProductService {
       category: 'sunglasses',
       description: 'Elegante zapato de cuero italiano.',
       price: 150000,
+      /*sizes: ['one size'],*/
       images: [
         'assets/img/SUNGLASSES/1/1-1.jpg',
         'assets/img/SUNGLASSES/1/1-2.jpg',
