@@ -1,17 +1,3 @@
-<!--<div [class.open]="isOpen" class="side-menu-content">
-  <div class="close-wrapper">
-    <button class="close-btn" (click)="toggleMenu()">
-      <mat-icon class="close-icon">close</mat-icon>
-      <span class="close-label">Close</span>
-    </button>
-
-  </div>
-  <ul class="menu-list">
-    <li><a href="#" class="items-side">Bags</a></li>
-    <li><a href="#" class="items-side">Sunglasses</a></li>
-    <li><a href="#" class="items-side">Shoes</a></li>
-  </ul>
-</div>-->
 <div [class.open]="isOpen" class="side-menu-content">
   <div class="close-wrapper">
     <button class="close-btn" (click)="toggleMenu()">
@@ -35,15 +21,20 @@
     </li>
 
     <li class="pb-3">
-      <span class="menu-title">Chic-Shop's Mission</span>
-      <ul class="submenu">
-        <li><a [routerLink]="['/about-us']" (click)="toggleMenu()">About Us</a></li>
-        <li><a [routerLink]="['/foundation']" (click)="toggleMenu()">Chic-Shop Foundation</a></li>
-      </ul>
+      <a [routerLink]="['/about-us']" class="menu-title" (click)="toggleMenu()">Chic-Shop's Mission</a>
     </li>
 
+    <hr class="text-primary my-2">
+
     <li class="pb-3">
-      <a [routerLink]="['/contact']" class="menu-title" (click)="toggleMenu()">Contact Us</a>
+      <span class="menu-title text-primary">Developer's Information</span>
+      <ul class="submenu">
+        <li><a [routerLink]="['/about-us']" class="text-primary" (click)="toggleMenu()">About me</a></li>
+        <li><a [routerLink]="['/about-us']" class="text-primary" (click)="toggleMenu()">Other Projects</a></li>
+        <li><a [routerLink]="['/contact']" class="text-primary" (click)="toggleMenu()">Developer's Contact</a></li>
+        <li><a  class="text-primary" (click)="onGithub();toggleMenu()">Repositories</a></li>
+        <li><a  class="text-primary" (click)="onLinkedIn();toggleMenu()">LinkedIn</a></li>
+      </ul>
     </li>
   </ul>
 </div>

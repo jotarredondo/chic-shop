@@ -1,13 +1,16 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {CartItem} from '../../shared/models/cartItem.model';
 import {CartService} from '../../services/cart.service';
-import {CurrencyPipe, TitleCasePipe} from '@angular/common';
+import {CurrencyPipe, NgForOf, TitleCasePipe} from '@angular/common';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-cart-modal',
   imports: [
     CurrencyPipe,
-    TitleCasePipe
+    TitleCasePipe,
+    NgForOf,
+    MatIcon
   ],
   templateUrl: './cart-modal.component.html',
   styleUrl: './cart-modal.component.scss'
@@ -32,6 +35,6 @@ export class CartModalComponent {
   }
 
   onLinkedIn() {
-    window.open('https://www.linkedin.com/in/tu-perfil', '_blank');
+    window.open('https://www.linkedin.com/in/arredondojose/');
   }
 }

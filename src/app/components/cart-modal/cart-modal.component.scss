@@ -18,6 +18,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   max-height: 80vh;
   overflow-y: auto;
+  position: relative;
 }
 
 .cart-items {
@@ -70,5 +71,61 @@
     padding: 0.5rem 1.25rem;
     border-radius: 4px;
     cursor: pointer;
+  }
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-actions .btn-outline,
+.modal-actions .btn-primary {
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  transition: background 0.3s ease;
+}
+
+.modal-actions .btn-outline {
+  background: transparent;
+  border: 1px solid #111;
+}
+
+.modal-actions .btn-outline:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.modal-actions .btn-primary {
+  background: #111;
+  color: #fff;
+  border: none;
+}
+
+.modal-actions .btn-primary:hover {
+  background: #444;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #111;
+  }
+
+  .close-icon {
+    font-size: 1.2rem;
+    line-height: 1;
   }
 }

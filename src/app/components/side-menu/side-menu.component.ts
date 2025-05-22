@@ -19,4 +19,12 @@ export class SideMenuComponent {
   get opened() {
     return this.isOpen;
   }
+
+  onGithub(){
+    window.open('https://github.com/jotarredondo');
+  }
+
+  onLinkedIn() {
+    window.open('https://www.linkedin.com/in/arredondojose/');
+  }
 }

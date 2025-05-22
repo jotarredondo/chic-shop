@@ -1,6 +1,10 @@
-<!--<p>cart-modal works!</p>-->
 <div class="modal-overlay">
   <div class="modal-content">
+    <!-- Botón de cierre -->
+    <div class="close-btn" (click)="onContinue()">
+      <mat-icon class="close-icon">close</mat-icon>
+    </div>
+
     <h4>Your Cart</h4>
 
     <div class="cart-items">
@@ -21,8 +25,7 @@
 
     <div class="modal-actions">
       <button class="btn-outline" (click)="onContinue()">Continue Shopping</button>
-      <button class="btn-primary" (click)="onLinkedIn()">Go to LinkedIn</button>
+      <button class="btn-primary bg-primary" (click)="onLinkedIn()">Go to LinkedIn Profile</button>
     </div>
   </div>
 </div>
-

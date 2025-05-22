@@ -42,7 +42,7 @@ export class HeaderComponent {
 
   getCartCount() {
     this.cartService.getCartCount().subscribe(count => {
-      this.cartCount = count;
+      this.cartCount = count;     // count debe ser 3, no "12"
     });
   }
 

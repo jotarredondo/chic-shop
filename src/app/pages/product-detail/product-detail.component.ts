@@ -72,6 +72,27 @@ export class ProductDetailComponent {
   addToCart() {
     if (!this.isReadyToAdd) return;
 
+    // Asegúrate de que selectedQuantity es un number
+    const qty = Number(this.selectedQuantity);
+
+    const item: CartItem = {
+      productId: this.product.id,
+      name: this.product.name,
+      price: this.product.price,
+      quantity: qty,               // aquí usamos `qty` como number
+      selectedSize: this.selectedSize ?? undefined,
+      selectedColor: this.selectedColor ?? undefined,
+      image: this.product.images[0]
+    };
+
+    console.log('👉 Adding to cart:', item);
+    this.cartService.addToCart(item);
+    this.openConfirmationModal();
+  }
+
+  /*addToCart() {
+    if (!this.isReadyToAdd) return;
+
     const item: CartItem = {
       productId: this.product.id,
       name: this.product.name,
@@ -84,7 +105,7 @@ export class ProductDetailComponent {
 
     this.cartService.addToCart(item);
     this.openConfirmationModal();
-  }
+  }*/
 
   next() {
     this.current = (this.current + 1) % this.product.images.length;
@@ -105,8 +126,8 @@ export class ProductDetailComponent {
   openConfirmationModal() {
     this.showModal = true;
 
-    setTimeout(() => {
+/*    setTimeout(() => {
       this.showModal = false;
-    }, 5000);
+    }, 5000);*/
   }
 }
