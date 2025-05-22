@@ -3,7 +3,7 @@ export interface CartItem {
   name: string;
   price: number;
   quantity: number;
-  selectedSize?: string;
-  selectedColor?: string;
+  selectedSize?: string | null;
+  selectedColor?: string | null;
   image: string;
 }

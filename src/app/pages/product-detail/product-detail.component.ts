@@ -5,6 +5,9 @@ import {ProductService} from '../../services/product.service';
 import {Product} from '../../shared/models/product.model';
 import {MatIcon} from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
+import {CartItem} from '../../shared/models/cartItem.model';
+import {CartService} from '../../services/cart.service';
+import {CartModalComponent} from '../../components/cart-modal/cart-modal.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,7 +18,8 @@ import {FormsModule} from '@angular/forms';
     CurrencyPipe,
     NgIf,
     NgForOf,
-    FormsModule
+    FormsModule,
+    CartModalComponent
   ],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss'
@@ -29,10 +33,12 @@ export class ProductDetailComponent {
   selectedSize: string | null = null;
   selectedQuantity = 1;
   availableSizes: string[] = [];
+  showModal = false;
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -63,42 +69,22 @@ export class ProductDetailComponent {
     }
   }
 
-/*  ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    const found = this.productService.getProductById(id);
-    if (found) {
-      this.product = found;
-      if (this.product.category === 'shoes') this.backgroundImageUrl = 'assets/img/SLIDE_HOME/2.jpg';
-      if (this.product.category === 'bags') this.backgroundImageUrl = 'assets/img/SLIDE_HOME/3.jpg';
-      if (this.product.category === 'sunglasses') this.backgroundImageUrl = 'assets/img/SLIDE_HOME/4.jpg';
-    }
-  }*/
-/*  ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    const found = this.productService.getProductById(id);
-    if (found) {
-      this.product = found;
+  addToCart() {
+    if (!this.isReadyToAdd) return;
 
-      // Asignar imagen de fondo
-      if (this.product.category === 'shoes') this.backgroundImageUrl = 'assets/img/SLIDE_HOME/2.jpg';
-      if (this.product.category === 'bags') this.backgroundImageUrl = 'assets/img/SLIDE_HOME/3.jpg';
-      if (this.product.category === 'sunglasses') this.backgroundImageUrl = 'assets/img/SLIDE_HOME/4.jpg';
+    const item: CartItem = {
+      productId: this.product.id,
+      name: this.product.name,
+      price: this.product.price,
+      quantity: this.selectedQuantity,
+      selectedSize: this.selectedSize,
+      selectedColor: this.selectedColor,
+      image: this.product.images[0]
+    };
 
-      // Selección automática de color (si hay)
-      if (this.product.colors?.length) {
-        this.selectedColor = this.product.colors[0];
-      }
-
-      // Lógica de talla (automáticamente 'One Size' si no hay)
-      if (this.product.sizes?.length) {
-        this.availableSizes = this.product.sizes;
-        this.selectedSize = this.product.sizes[0];
-      } else {
-        this.availableSizes = ['One Size'];
-        this.selectedSize = 'One Size';
-      }
-    }
-  }*/
+    this.cartService.addToCart(item);
+    this.openConfirmationModal();
+  }
 
   next() {
     this.current = (this.current + 1) % this.product.images.length;
@@ -114,5 +100,13 @@ export class ProductDetailComponent {
       (!this.product.sizes || !!this.selectedSize) &&
       this.selectedQuantity > 0
     );
+  }
+
+  openConfirmationModal() {
+    this.showModal = true;
+
+    setTimeout(() => {
+      this.showModal = false;
+    }, 5000);
   }
 }

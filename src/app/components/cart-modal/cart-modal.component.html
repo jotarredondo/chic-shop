@@ -1,0 +1,28 @@
+<!--<p>cart-modal works!</p>-->
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h4>Your Cart</h4>
+
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of items">
+        <img [src]="item.image" alt="{{ item.name }}" class="item-img" />
+        <div class="item-info">
+          <p class="item-name">{{ item.name | titlecase }}</p>
+          <p class="item-qty">Qty: {{ item.quantity }}</p>
+          <p class="item-subtotal">{{ (item.price * item.quantity) | currency:'CAD':'symbol' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-total">
+      <span>Total:</span>
+      <span class="total-amount">{{ total | currency:'CAD':'symbol' }}</span>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-outline" (click)="onContinue()">Continue Shopping</button>
+      <button class="btn-primary" (click)="onLinkedIn()">Go to LinkedIn</button>
+    </div>
+  </div>
+</div>
+
