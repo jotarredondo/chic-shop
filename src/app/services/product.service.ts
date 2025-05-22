@@ -106,7 +106,6 @@ export class ProductService {
       category: 'sunglasses',
       description: 'Elegante zapato de cuero italiano.',
       price: 150000,
-      /*sizes: ['one size'],*/
       images: [
         'assets/img/SUNGLASSES/1/1-1.jpg',
         'assets/img/SUNGLASSES/1/1-2.jpg',
