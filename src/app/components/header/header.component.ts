@@ -5,6 +5,7 @@ import {CommonModule} from '@angular/common';
 import {SideMenuComponent} from '../side-menu/side-menu.component';
 import {MenuService} from '../../services/menu.service';
 import {RouterLink} from '@angular/router';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -23,8 +24,9 @@ export class HeaderComponent {
   isHovered = false;
   isMobile = window.innerWidth < 768;
   menuOpen = false;
+  cartCount = 0;
 
-  constructor(private menuService: MenuService) {}
+  constructor(private menuService: MenuService, private cartService: CartService) {}
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -35,6 +37,13 @@ export class HeaderComponent {
       this.isMobile = window.innerWidth < 768;
     });
       this.menuService.menuOpen$.subscribe(open => this.menuOpen = open);
+      this.getCartCount();
+  }
+
+  getCartCount() {
+    this.cartService.getCartCount().subscribe(count => {
+      this.cartCount = count;
+    });
   }
 
   @HostListener('window:scroll', [])

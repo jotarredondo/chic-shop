@@ -6,7 +6,7 @@
 
   <div class="info-page-wrapper">
     <!-- Cabecera ovalada con logo -->
-    <div class="category-header mt-5 mx-auto bg-white rounded-pill text-center custom-oval">
+    <div class="category-header mt-5 mx-auto rounded-pill text-center custom-oval">
       <img src="assets/img/LOGOS/logo_chic_B.png" alt="Logo" class="category-logo mb-2" />
     </div>
 
@@ -14,19 +14,22 @@
       <!-- IMAGEN -->
       <div class="detail-image w-100 w-md-50">
         <div class="slider position-relative">
-          <img [src]="product.images[current]" [alt]="product.name" class="rounded-2 w-100" />
+          <div class="zoom-container">
+            <img [src]="product.images[current]" [alt]="product.name" class="zoom-image rounded-2 w-100" />
+          </div>
+
           <button class="nav prev" (click)="prev()"><mat-icon>chevron_left</mat-icon></button>
           <button class="nav next" (click)="next()"><mat-icon>chevron_right</mat-icon></button>
         </div>
       </div>
 
+      <!-- GENERAL ELEMENT -->
       <div class="detail-info row gx-4">
-        <!-- COLUMNA IZQUIERDA -->
+        <!-- LEFT COLUMN -->
         <div class="col-12 col-md-6">
-          <!-- TÍTULO -->
+          <!-- TITLE -->
           <h2 class="info-subtitle">{{ product.name | titlecase }}</h2>
-
-          <!-- DESCRIPCIÓN -->
+          <!-- DESCRIPTION -->
           <p class="product-desc">{{ product.description }}</p>
 
           <!-- COLORS -->
@@ -55,14 +58,15 @@
           </div>
         </div>
 
-        <!-- COLUMNA DERECHA -->
+        <!-- RIGHT COLUMN -->
         <div class="col-12 col-md-6 d-flex flex-column align-items-center text-center">
           <div class="my-4"></div>
-          <!-- PRICE + QUANTITY -->
+          <!-- PRICE -->
           <div class="mb-4">
             <h3 class="product-price fw-bold">{{ product.price | currency:'CAD':'symbol' }}</h3>
           </div>
 
+          <!-- QUANTITY -->
           <div class="mb-2">
             <div class="product-quantity mb-3">
               <label class="form-label">Quantity:</label>
@@ -71,12 +75,10 @@
               </select>
             </div>
           </div>
-
-          <!-- BOTÓN ADD TO CART -->
+          <!-- BUTTON ADD TO CART -->
           <div>
             <button class="add-btn w-100 w-md-auto px-5 py-2 mt-2" [disabled]="!isReadyToAdd">Add to Cart</button>
           </div>
-
         </div>
       </div>
     </div>

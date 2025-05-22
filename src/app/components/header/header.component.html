@@ -29,12 +29,13 @@
   </div>
 
   <div class="header-right">
-    <button mat-icon-button aria-label="Buscar" class="search-btn">
+    <button mat-icon-button aria-label="search" class="search-btn">
       <mat-icon>search</mat-icon>
     </button>
 
-    <button mat-icon-button aria-label="Carrito">
+    <button mat-icon-button aria-label="cart">
       <mat-icon>shopping_bag</mat-icon>
+      <span *ngIf="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
     </button>
   </div>
 </header>
