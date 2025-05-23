@@ -37,4 +37,10 @@ export class CartModalComponent {
   onLinkedIn() {
     window.open('https://www.linkedin.com/in/arredondojose/');
   }
+
+  removeItem(index: number) {
+    this.cartService.removeFromCart(index);
+    this.items = this.cartService.getCartItems(); // Actualiza el listado
+    this.total = this.cartService.getTotal(); // Recalcula el total
+  }
 }

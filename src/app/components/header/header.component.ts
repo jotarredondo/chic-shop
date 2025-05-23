@@ -6,6 +6,7 @@ import {SideMenuComponent} from '../side-menu/side-menu.component';
 import {MenuService} from '../../services/menu.service';
 import {RouterLink} from '@angular/router';
 import {CartService} from '../../services/cart.service';
+import {CartModalComponent} from '../cart-modal/cart-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,8 @@ import {CartService} from '../../services/cart.service';
     MatButtonModule,
     CommonModule,
     SideMenuComponent,
-    RouterLink
+    RouterLink,
+    CartModalComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -25,6 +27,7 @@ export class HeaderComponent {
   isMobile = window.innerWidth < 768;
   menuOpen = false;
   cartCount = 0;
+  showCartModal = false;
 
   constructor(private menuService: MenuService, private cartService: CartService) {}
 
@@ -44,6 +47,12 @@ export class HeaderComponent {
     this.cartService.getCartCount().subscribe(count => {
       this.cartCount = count;     // count debe ser 3, no "12"
     });
+  }
+
+  toggleCartModal() {
+    if (this.cartCount > 0) {
+      this.showCartModal = true;
+    }
   }
 
   @HostListener('window:scroll', [])

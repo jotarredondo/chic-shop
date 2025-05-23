@@ -41,4 +41,17 @@ export class CartService {
 
     this.cartCount.next(totalQuantity);
   }
+
+  removeFromCart(index: number): void {
+    if (index >= 0 && index < this.items.length) {
+      this.items.splice(index, 1);
+    }
+
+    const totalQuantity = this.items.reduce((sum, item) => sum + Number(item.quantity), 0);
+    this.cartCount.next(totalQuantity);
+  }
+
+  getTotal(): number {
+    return this.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  }
 }

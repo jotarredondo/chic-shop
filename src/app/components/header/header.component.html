@@ -33,11 +33,12 @@
       <mat-icon>search</mat-icon>
     </button>
 
-    <button mat-icon-button aria-label="cart">
+    <button mat-icon-button aria-label="cart" (click)="toggleCartModal()">
       <mat-icon>shopping_bag</mat-icon>
       <span *ngIf="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
     </button>
   </div>
 </header>
+<app-cart-modal *ngIf="showCartModal" (close)="showCartModal = false"></app-cart-modal>
 <app-side-menu [isOpen]="menuOpen" [toggleMenu]="toggleMenu.bind(this)"></app-side-menu>
 <div class="overlay" *ngIf="menuOpen" (click)="toggleMenu()"></div>

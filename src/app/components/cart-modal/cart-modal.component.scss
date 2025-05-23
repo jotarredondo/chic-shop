@@ -129,3 +129,20 @@
     line-height: 1;
   }
 }
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  mat-icon {
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+  }
+
+  &:hover mat-icon {
+    color: #c00;
+  }
+}

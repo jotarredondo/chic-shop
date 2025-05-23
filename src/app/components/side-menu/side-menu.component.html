@@ -10,17 +10,17 @@
     <li class="pb-3">
       <span class="menu-title">Products</span>
       <ul class="submenu">
-        <li><a [routerLink]="['/category/bags']" (click)="toggleMenu()">Bags</a></li>
-        <li><a [routerLink]="['/category/sunglasses']" (click)="toggleMenu()">Sunglasses</a></li>
-        <li><a [routerLink]="['/category/shoes']" (click)="toggleMenu()">Shoes</a></li>
+        <li class="store-link"><a [routerLink]="['/category/bags']" (click)="toggleMenu()">Bags</a></li>
+        <li class="store-link"><a [routerLink]="['/category/sunglasses']" (click)="toggleMenu()">Sunglasses</a></li>
+        <li class="store-link"><a [routerLink]="['/category/shoes']" (click)="toggleMenu()">Shoes</a></li>
       </ul>
     </li>
 
-    <li class="pb-3">
+    <li class="store-link pb-3">
       <a [routerLink]="['/find-shop']" class="menu-title" (click)="toggleMenu()">Find a Shop</a>
     </li>
 
-    <li class="pb-3">
+    <li class="store-link pb-3">
       <a [routerLink]="['/about-us']" class="menu-title" (click)="toggleMenu()">About Us</a>
     </li>
 

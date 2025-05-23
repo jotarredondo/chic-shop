@@ -8,13 +8,16 @@
     <h4>Your Cart</h4>
 
     <div class="cart-items">
-      <div class="cart-item" *ngFor="let item of items">
+      <div class="cart-item" *ngFor="let item of items; let i = index">
         <img [src]="item.image" alt="{{ item.name }}" class="item-img" />
         <div class="item-info">
           <p class="item-name">{{ item.name | titlecase }}</p>
           <p class="item-qty">Qty: {{ item.quantity }}</p>
           <p class="item-subtotal">{{ (item.price * item.quantity) | currency:'CAD':'symbol' }}</p>
         </div>
+        <button class="remove-btn" (click)="removeItem(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </div>
     </div>
 
