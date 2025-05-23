@@ -8,25 +8,20 @@ export class SlideService {
 
   getSlides(): Slide[] {
     return [
-/*      {
-        image: 'assets/img/SLIDE_HOME/1.jpg',
-        title: 'Primavera Chic',
-        subtitle: 'Descubre lo nuevo en accesorios vibrantes'
-      },*/
       {
         image: 'assets/img/SLIDE_HOME/2.jpg',
-        title: 'Elegancia Atemporal',
-        subtitle: 'Diseños que hablan por sí solos'
+        title: 'Step into Style',
+        subtitle: 'Discover shoes that speak confidence in every step.'
       },
       {
         image: 'assets/img/SLIDE_HOME/3.jpg',
-        title: 'Estilo Urbano',
-        subtitle: 'Looks perfectos para tu día a día'
+        title: 'Carry Chic',
+        subtitle: 'Handbags and backpacks made to elevate your everyday look.'
       },
       {
         image: 'assets/img/SLIDE_HOME/4.jpg',
-        title: 'Lujo Minimalista',
-        subtitle: 'Menos es más, siempre'
+        title: 'See the Sun Differently',
+        subtitle: 'Minimal designs with maximum attitude.'
       }
     ];
   }

@@ -16,10 +16,10 @@
 
   <!-- ▸ INFO ◂ -->
   <div class="product-info text-center mt-3">
-    <h5 class="product-name">{{ product.name | titlecase }}</h5>
+    <h5 class="product-name mb-0" (click)="goToDetail()">{{ product.name | titlecase }}</h5>
     <p class="product-description">{{product.description}}</p>
     <p class="mb-3">
-      {{ product.price | currency:'CAD':'symbol' }}
+      <strong>{{ product.price | currency:'CAD':'symbol' }}</strong>
     </p>
   </div>
 </div>

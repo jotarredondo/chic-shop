@@ -28,23 +28,12 @@ export class CategoryComponent {
   subCategoryFilter: string = '';
   colorFilter: string = '';
   sizeFilter: string = '';
-  maxPrice: number = 300000;
+  maxPrice: number = 500;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
   ) {}
-
-/*  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const name = params.get('name');
-      if (name === 'shoes' || name === 'bags' || name === 'sunglasses') {
-        this.categoryName = name;
-        this.products = this.productService.getProductsByCategory(this.categoryName);
-        this.filterProducts(); // filtrado inicial
-      }
-    });
-  }*/
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {

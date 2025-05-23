@@ -29,9 +29,30 @@
   </div>
 
   <div class="header-right">
-    <button mat-icon-button aria-label="search" class="search-btn">
-      <mat-icon>search</mat-icon>
-    </button>
+    <div class="search-container">
+      <button mat-icon-button aria-label="search" (click)="toggleSearch()">
+        <mat-icon>search</mat-icon>
+      </button>
+      <div class="search-box" *ngIf="searchVisible">
+        <div class="search-row d-flex align-items-center gap-1">
+          <input
+            type="text"
+            [(ngModel)]="searchQuery"
+            (keydown.enter)="performSearch()"
+            placeholder="Search products..."
+            class="search-input"
+          />
+          <button class="btn-icon" (click)="performSearch()">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+
+        <!-- Mensaje de error bajo el input -->
+        <div *ngIf="notFound" class="search-error mt-1 text-danger text-right">
+          <p>No results found</p>
+        </div>
+      </div>
+    </div>
 
     <button mat-icon-button aria-label="cart" (click)="toggleCartModal()">
       <mat-icon>shopping_bag</mat-icon>
