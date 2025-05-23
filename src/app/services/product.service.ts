@@ -13,6 +13,7 @@ export class ProductService {
       category: 'shoes',
       subcategoryShoes: 'boots',
       colors: ['white'],
+      sizes: ['5','5.5','6','6.5','7','7.5','8','8.5','9'],
       description: 'Sleek white leather ankle boots for bold looks.',
       price: 420,
       images: [
@@ -27,6 +28,8 @@ export class ProductService {
       id: 2,
       name: 'Modern Loraine',
       category: 'shoes',
+      colors: ['white'],
+      sizes: ['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10'],
       subcategoryShoes: 'sneakers',
       description: 'Modern sneakers with soft Italian leather finish.',
       price: 300,
@@ -34,9 +37,7 @@ export class ProductService {
         'assets/img/ZAPATOS/2/2-1.jpg',
         'assets/img/ZAPATOS/2/2-2.jpg',
         'assets/img/ZAPATOS/2/2-3.jpg'
-      ],
-      sizes: ['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10'],
-      colors: ['white']
+      ]
     },
     {
       id: 3,
@@ -44,6 +45,7 @@ export class ProductService {
       category: 'shoes',
       subcategoryShoes: 'shoes',
       colors: ['brown', 'black'],
+      sizes: ['5','5.5','6','6.5','7','7.5','8','8.5','9'],
       description: 'Versatile summer shoes in dual-tone leather.',
       price: 250,
       images: [
@@ -60,6 +62,7 @@ export class ProductService {
       category: 'shoes',
       subcategoryShoes: 'shoes',
       colors: ['blue'],
+      sizes: ['5','5.5','6','6.5','7','7.5','8','8.5'],
       description: 'Elegant blue shoes with a high-gloss finish.',
       price: 320,
       images: [
@@ -73,6 +76,7 @@ export class ProductService {
       category: 'shoes',
       subcategoryShoes: 'shoes',
       colors: ['brown'],
+      sizes: ['5.5','6','6.5','7','7.5','8','8.5','9','9.5'],
       description: 'Classic brown leather shoes with full coverage.',
       price: 380,
       images: [
@@ -90,6 +94,7 @@ export class ProductService {
       category: 'shoes',
       subcategoryShoes: 'sneakers',
       colors: ['blue'],
+      sizes: ['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5'],
       description: 'Casual blue sneakers for everyday comfort.',
       price: 270,
       images: [
@@ -105,6 +110,7 @@ export class ProductService {
       category: 'shoes',
       subcategoryShoes: 'shoes',
       colors: ['brown'],
+      sizes: ['5','5.5','6','6.5','7','7.5','8','8.5','9'],
       description: 'Chic summer loafers with breathable design.',
       price: 300,
       images: [

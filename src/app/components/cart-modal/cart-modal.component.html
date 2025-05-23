@@ -1,5 +1,6 @@
 <div class="modal-overlay">
-  <div class="modal-content">
+  <div class="modal-content" [class.fade-out]="fadingOut">
+  <!--<div class="modal-content">-->
     <!-- Botón de cierre -->
     <div class="close-btn" (click)="onContinue()">
       <mat-icon class="close-icon">close</mat-icon>

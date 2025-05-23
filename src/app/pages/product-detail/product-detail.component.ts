@@ -47,22 +47,20 @@ export class ProductDetailComponent {
     if (found) {
       this.product = found;
 
-      // Imagen de fondo según categoría
       if (this.product.category === 'shoes') this.backgroundImageUrl = 'assets/img/SLIDE_HOME/2.jpg';
       if (this.product.category === 'bags') this.backgroundImageUrl = 'assets/img/SLIDE_HOME/3.jpg';
       if (this.product.category === 'sunglasses') this.backgroundImageUrl = 'assets/img/SLIDE_HOME/4.jpg';
 
-      // Preselección de color solo si hay
-      if (this.product.colors?.length) {
-        this.selectedColor = null;
+      if (this.product.colors?.length === 1) {
+        this.selectedColor = this.product.colors[0];
       }
-
-      // Tallas: si existen, no se preselecciona ninguna
+      if (this.product.colors?.length === 1) {
+        this.selectedColor = this.product.colors[0];
+      }
       if (this.product.sizes?.length) {
         this.availableSizes = this.product.sizes;
         this.selectedSize = null;
       } else {
-        // Si no hay tallas, se usa "One Size" preseleccionado
         this.availableSizes = ['One Size'];
         this.selectedSize = 'One Size';
       }
@@ -83,8 +81,6 @@ export class ProductDetailComponent {
       selectedColor: this.selectedColor ?? undefined,
       image: this.product.images[0]
     };
-
-    console.log('👉 Adding to cart:', item);
     this.cartService.addToCart(item);
     this.openConfirmationModal();
   }
