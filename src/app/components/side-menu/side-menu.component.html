@@ -26,16 +26,6 @@
 
     <hr class="text-primary my-2">
 
-<!--    <li class="pb-3">
-      <span class="menu-title text-primary">Developer's Information</span>
-      <ul class="submenu">
-        <li><a [routerLink]="['/about-us']" class="store-link text-primary" (click)="toggleMenu()">About me</a></li>
-        <li><a [routerLink]="['/about-us']" class="store-link text-primary" (click)="toggleMenu()">Other Projects</a></li>
-        <li><a [routerLink]="['/contact']" class="store-link text-primary" (click)="toggleMenu()">Developer's Contact</a></li>
-        <li><a  class="store-link text-primary" (click)="onGithub();toggleMenu()">Repositories</a></li>
-        <li><a  class="store-link text-primary" (click)="onLinkedIn();toggleMenu()">LinkedIn</a></li>
-      </ul>
-    </li>-->
     <li class="pb-3">
       <div class="menu-title text-primary d-flex justify-content-between align-items-center"
            (click)="toggleDeveloperMenu()"
@@ -45,11 +35,10 @@
       </div>
 
       <ul class="submenu" *ngIf="developerMenuOpen">
-        <li><a [routerLink]="['/about-me']" class="store-link text-primary" (click)="toggleMenu()">About me</a></li>
-        <li><a [routerLink]="['/about-us']" class="store-link text-primary" (click)="toggleMenu()">Other Projects</a></li>
-        <!--<li><a [routerLink]="['/contact']" class="store-link text-primary" (click)="toggleMenu()">Developer's Contact</a></li>-->
-        <li><a class="store-link text-primary" (click)="onGithub();toggleMenu()">GitHub Respositories <i class="fab fa-github fa-lg"></i></a></li>
-        <li><a class="store-link text-primary" (click)="onLinkedIn();toggleMenu()">LinkedIn Profile <i class="fab fa-linkedin fa-lg"></i></a></li>
+        <li><a [routerLink]="['/about-me']" class="store-link text-primary" (click)="toggleMenu()"><i class="fas fa-user fa-lg"></i> | About me</a></li>
+        <li><a [routerLink]="['/about-us']" class="store-link text-primary" (click)="toggleMenu()"><i class="fas fa-laptop-code fa-lg"></i> | Other Projects</a></li>
+        <li><a class="store-link text-primary" (click)="onGithub();toggleMenu()"><i class="fab fa-github fa-lg"></i> | GitHub Respositories</a></li>
+        <li><a class="store-link text-primary" (click)="onLinkedIn();toggleMenu()"><i class="fab fa-linkedin fa-lg"></i> | LinkedIn Profile</a></li>
       </ul>
     </li>
 
