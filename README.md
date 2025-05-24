@@ -14,14 +14,13 @@ Features:
 - Mobile-first responsive design
 - Smooth animated side menu
 - Product categories: shoes, bags, sunglasses
-- Elegant UI with Angular Material and custom styling
+- Elegant UI and custom styling
 
 ---
 
 ## 🧰 Tech Stack
 
 - ✅ Angular 17 (standalone components)
-- ✅ Angular Material
 - ✅ SCSS
 - ✅ Bootstrap (for layout enhancements)
 - ✅ GitHub Pages (deployment)

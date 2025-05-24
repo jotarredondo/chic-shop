@@ -26,7 +26,7 @@
 
     <hr class="text-primary my-2">
 
-    <li class="pb-3">
+<!--    <li class="pb-3">
       <span class="menu-title text-primary">Developer's Information</span>
       <ul class="submenu">
         <li><a [routerLink]="['/about-us']" class="store-link text-primary" (click)="toggleMenu()">About me</a></li>
@@ -35,6 +35,23 @@
         <li><a  class="store-link text-primary" (click)="onGithub();toggleMenu()">Repositories</a></li>
         <li><a  class="store-link text-primary" (click)="onLinkedIn();toggleMenu()">LinkedIn</a></li>
       </ul>
+    </li>-->
+    <li class="pb-3">
+      <div class="menu-title text-primary d-flex justify-content-between align-items-center"
+           (click)="toggleDeveloperMenu()"
+           style="cursor: pointer;">
+        <span>Developer's Information</span>
+        <mat-icon>{{ developerMenuOpen ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </div>
+
+      <ul class="submenu" *ngIf="developerMenuOpen">
+        <li><a [routerLink]="['/about-me']" class="store-link text-primary" (click)="toggleMenu()">About me</a></li>
+        <li><a [routerLink]="['/about-us']" class="store-link text-primary" (click)="toggleMenu()">Other Projects</a></li>
+        <!--<li><a [routerLink]="['/contact']" class="store-link text-primary" (click)="toggleMenu()">Developer's Contact</a></li>-->
+        <li><a class="store-link text-primary" (click)="onGithub();toggleMenu()">GitHub Respositories <i class="fab fa-github fa-lg"></i></a></li>
+        <li><a class="store-link text-primary" (click)="onLinkedIn();toggleMenu()">LinkedIn Profile <i class="fab fa-linkedin fa-lg"></i></a></li>
+      </ul>
     </li>
+
   </ul>
 </div>

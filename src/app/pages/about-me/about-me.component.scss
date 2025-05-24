@@ -1,0 +1,138 @@
+:host {
+  display: block;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.detail-background-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  .detail-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    transform: scale(1.05);
+    z-index: 0;
+  }
+
+  .info-page-wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/*.info-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}*/
+
+.category-header {
+  max-width: 320px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin: 0 auto 2rem auto;
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px) saturate(180%);
+
+  .category-logo {
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+
+    @media (min-width: 768px) {
+      height: 80px;
+    }
+  }
+
+  .info-subtitle {
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    @media (min-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+/*.centered-list {
+  list-style-position: inside;
+  padding: 0;
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: center;
+
+  li {
+    margin-bottom: 0.75rem;
+    display: list-item;
+  }
+}*/
+
+.info-content.about-wrapper {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    padding: 3rem 3rem;
+  }
+
+  .about-paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    max-width: 700px;
+    margin: 0.5rem 0;
+  }
+
+  .divider {
+    width: 100%;
+    max-width: 600px;
+    margin: 1rem auto;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+
+  .open-to-work {
+    max-width: 600px;
+    p {
+      margin-top: 0.5rem;
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #333;
+    }
+  }
+}
+
+.centered-list {
+  list-style-position: inside;
+  padding: 0;
+  margin: 1rem auto;
+  max-width: 600px;
+  text-align: center;
+
+  li {
+    margin-bottom: 0.75rem;
+  }
+}
+
