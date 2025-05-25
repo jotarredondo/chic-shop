@@ -19,6 +19,7 @@
           "options": {
             "outputPath": "dist/chic-shop",
             "index": "src/index.html",
+            "baseHref": "/chic-shop/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"

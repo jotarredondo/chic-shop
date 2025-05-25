@@ -3,6 +3,50 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+
+    .header-left,
+    .header-right {
+      flex: 1;
+    }
+
+    .header-center {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .logo {
+        max-width: 120px;
+        height: auto;
+      }
+    }
+
+    .search-container,
+    .cart-badge {
+      transform: scale(0.9);
+    }
+
+    .search-box {
+      top: 40px;
+    }
+  }
+
+  .header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.25rem;
+    }
+  }
+}
+
 .store-link {
   text-decoration: underline;
   color: #111;
