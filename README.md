@@ -1,17 +1,15 @@
-# 🛍️ Chic Shop
+# 🛍️ Chic-Shop — Angular E-Commerce Portfolio
 
-_Luxury-inspired e-commerce web app built with Angular 17 and Angular Material._
+**Chic-Shop** is a fictional e-commerce application built as a personal portfolio project to demonstrate frontend architecture, reusable component design, and state management using **Angular 17** and modern development practices.
 
----
+This project features a clean UI/UX, dynamic routing, product filtering, shopping cart logic, and responsive design — all built with vanilla **Angular**, **TypeScript**, **Bootstrap 5**, and **SCSS** (no Angular Material).
 
 ## 📸 Overview
 
-**Chic Shop** is a fictional e-commerce platform designed with elegance and simplicity in mind, inspired by brands like Bulgari and Louis Vuitton.
-
 Features:
 
-- Full-screen hero image slider
 - Mobile-first responsive design
+- Full-screen hero image slider
 - Smooth animated side menu
 - Product categories: shoes, bags, sunglasses
 - Elegant UI and custom styling
@@ -20,10 +18,12 @@ Features:
 
 ## 🧰 Tech Stack
 
-- ✅ Angular 17 (standalone components)
-- ✅ SCSS
-- ✅ Bootstrap (for layout enhancements)
-- ✅ GitHub Pages (deployment)
+- ✅Angular 17 (standalone components)
+- ✅ TypeScript
+- ✅ HTML & SCSS
+- ✅ Bootstrap 5
+- ✅ Custom Services for cart and product logic
+- ✅ GitHub Pages for deployment
 
 ---
 
