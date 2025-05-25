@@ -1,0 +1,38 @@
+<div class="detail-background-wrapper">
+  <div class="detail-background-image" style="background-image: url('assets/img/BG_PAGES/3.jpg')"></div>
+
+  <div class="info-page-wrapper">
+    <!-- Header -->
+    <div class="category-header mt-3 mx-auto rounded-pill text-center custom-oval">
+    </div>
+    <div class="category-header mx-auto rounded-pill text-center custom-oval">
+      <h2 class="info-subtitle">Other Projects</h2>
+    </div>
+
+    <!-- Projects List -->
+    <div class="info-content">
+      <div class="project-card shadow rounded-2 py-3" *ngFor="let project of projects">
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title" />
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+
+          <div class="project-meta d-flex align-items-center gap-3 mt-2 mb-1">
+            <span class="project-year">📅 {{ project.year }}</span>
+            <span *ngIf="!project.repo" class="project-private">🔒 Private Client Project</span>
+            <a *ngIf="project.repo" [href]="project.repo" target="_blank" rel="noopener" class="project-link">
+              <i class="fab fa-github"></i> View Repo
+            </a>
+          </div>
+
+          <div class="project-tags">
+            <span *ngFor="let tech of project.technologies" class="tag">{{ tech }}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
